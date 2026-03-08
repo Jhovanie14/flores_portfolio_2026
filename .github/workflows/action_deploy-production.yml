@@ -10,7 +10,7 @@ jobs:
   build:
     uses: ./.github/workflows/service_docker-build-and-publish.yml
     with:
-      docker-tags: "ghcr.io/${{ github.repository }}:${{ github.sha }}"
+      docker-tags: "ghcr.io/jhovanie14/flores_portfolio:${{ github.sha }}"
       dockerfile: "./Dockerfile.php"
       environment: production
     secrets: inherit
@@ -34,6 +34,6 @@ jobs:
           ssh_remote_known_hosts: "${{ secrets.SSH_REMOTE_KNOWN_HOSTS }}"
           stack_name: "${{ env.PROJECT_NAME }}"
         env:
-          SPIN_IMAGE_DOCKERFILE_PHP: "ghcr.io/${{ github.repository }}:${{ github.sha }}"
+          SPIN_IMAGE_DOCKERFILE_PHP: "ghcr.io/jhovanie14/flores_portfolio:${{ github.sha }}"
           SPIN_DEPLOYMENT_ENVIRONMENT: production
           AUTHORIZED_KEYS: "${{ secrets.AUTHORIZED_KEYS }}"
