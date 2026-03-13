@@ -26,3 +26,9 @@ services:
     healthcheck:
       test: ["CMD", "healthcheck-horizon"]
       start_period: 10s
+  reverb:
+    command: ["php", "/var/www/html/artisan", "--port=8000", "reverb:start"]
+    stop_signal: SIGTERM
+    healthcheck:
+      test: ["CMD", "healthcheck-reverb"]
+      start_period: 10s

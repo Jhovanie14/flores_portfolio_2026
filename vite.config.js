@@ -1,24 +1,28 @@
-import fs from 'fs';
-import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
-import react from '@vitejs/plugin-react';
+import fs from "fs";
+import { defineConfig } from "vite";
+import laravel from "laravel-vite-plugin";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-     server: {
-        host: '0.0.0.0',
+    server: {
+        host: "0.0.0.0",
         hmr: {
-            host: 'vite.dev.test',
+            host: "vite.dev.test",
             clientPort: 443,
         },
         https: {
-            key: fs.readFileSync('/usr/src/app/.infrastructure/conf/traefik/dev/certificates/local-dev-key.pem'),
-            cert: fs.readFileSync('/usr/src/app/.infrastructure/conf/traefik/dev/certificates/local-dev.pem'),
+            key: fs.readFileSync(
+                "/usr/src/app/.infrastructure/conf/traefik/dev/certificates/local-dev-key.pem",
+            ),
+            cert: fs.readFileSync(
+                "/usr/src/app/.infrastructure/conf/traefik/dev/certificates/local-dev.pem",
+            ),
         },
     },
     plugins: [
         laravel({
-            input: 'resources/js/app.tsx',
-            ssr: 'resources/js/ssr.tsx',
+            input: "resources/js/app.tsx",
+            ssr: "resources/js/ssr.tsx",
             refresh: true,
         }),
         react(),

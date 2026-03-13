@@ -9,7 +9,6 @@ FROM serversideup/php:8.5-fpm-nginx-alpine AS base
 ## Uncomment if you need to install additional PHP extensions
 USER root
 RUN install-php-extensions intl
-# RUN install-php-extensions bcmath gd
 
 ############################################
 # Development Image

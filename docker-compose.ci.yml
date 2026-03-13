@@ -20,3 +20,9 @@ services:
       dockerfile: Dockerfile.php
     volumes:
       - .:/var/www/html/
+  reverb:
+    build:
+      target: ci
+      dockerfile: Dockerfile.php
+    volumes:
+      - .:/var/www/html/
