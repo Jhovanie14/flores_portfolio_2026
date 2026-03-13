@@ -10,7 +10,7 @@ jobs:
   build:
     uses: ./.github/workflows/service_docker-build-and-publish.yml
     with:
-      docker-tags: "ghcr.io/$flores_portfolio_2026:${{ github.sha }}"
+      docker-tags: "ghcr.io/$jhovanie14/flores_portfolio:${{ github.sha }}"
       dockerfile: "./Dockerfile.php"
       environment: production
     secrets: inherit
@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: Set project name
         run: |
-          echo "PROJECT_NAME=$flores_portfolio_2026" >> $GITHUB_ENV
+          echo "PROJECT_NAME=$jhovanie14/flores_portfolio" >> $GITHUB_ENV
       - uses: serversideup/github-action-docker-swarm-deploy@v4
         with:
           env_file_base64: "${{ secrets.PRODUCTION_ENV_FILE_BASE64 }}"
