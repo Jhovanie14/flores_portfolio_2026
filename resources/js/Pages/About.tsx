@@ -15,7 +15,7 @@ export default function About({}: PageProps) {
     const [loaded, setLoaded] = useState(false);
     return (
         <>
-            <Head title="About — John Doe" />
+            <Head title="About — Jhovanie Flores" />
             <Loading onComplete={() => setLoaded(true)} />
             <Guest>
                 <div className="px-8 md:px-14 pb-32">

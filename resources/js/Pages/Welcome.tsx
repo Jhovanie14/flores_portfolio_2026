@@ -16,8 +16,7 @@ export default function Home() {
 
     return (
         <Guest fullScreen>
-            <Head title="John Doe — Frontend Developer & Designer" />
-
+            <Head title="Jhovanie Flores — FullStack Developer" />
             {/* Loading overlay — unmounts after curtain fully lifts */}
             <Loading onComplete={() => setLoaded(true)} />
 

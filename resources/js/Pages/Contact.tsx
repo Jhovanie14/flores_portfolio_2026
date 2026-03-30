@@ -33,7 +33,7 @@ export default function Contact({}: PageProps) {
 
     return (
         <>
-            <Head title="Contact — John Doe" />
+            <Head title="Contact — Jhovanie Flores" />
             <Loading onComplete={() => setLoaded(true)} />
             <Guest>
                 <div className="px-8 md:px-14 pb-32">
