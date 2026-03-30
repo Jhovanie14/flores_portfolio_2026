@@ -12,6 +12,7 @@ const NAV_LINKS = [
 export default function Navbar() {
     const { url } = usePage();
     const [scrolled, setScrolled] = useState(false);
+    const isHome = url === "/" || url === route("home");
     const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
@@ -38,11 +39,11 @@ export default function Navbar() {
 
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 transition-all duration-500
+            className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500
                 ${
-                    scrolled
+                    scrolled || !isHome
                         ? "py-4 bg-[#0e0e0e]/90 backdrop-blur-md border-b border-white/5"
-                        : "py-8 bg-[#0e0e0e] border-b border-white/5"
+                        : "py-8"
                 }`}
         >
             <div className="flex justify-between items-center px-8 md:px-14">
