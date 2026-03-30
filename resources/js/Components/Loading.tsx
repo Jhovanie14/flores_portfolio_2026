@@ -113,7 +113,7 @@ export default function Loading({ onComplete }: LoadingProps) {
                                         fontSize: "clamp(52px, 10vw, 120px)",
                                     }}
                                 >
-                                    Creative
+                                    Jhovanie
                                 </span>
                             </div>
                             {/* Line 2 — outline */}
@@ -126,7 +126,7 @@ export default function Loading({ onComplete }: LoadingProps) {
                                         WebkitTextStroke: "1.5px #e8e2d4",
                                     }}
                                 >
-                                    Studio
+                                    Dev
                                 </span>
                             </div>
 

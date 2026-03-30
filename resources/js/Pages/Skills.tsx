@@ -2,8 +2,10 @@ import { useRef, useEffect, useState } from "react";
 import { Head } from "@inertiajs/react";
 import Guest from "@/Layouts/GuestLayout";
 import Loading from "@/Components/Loading";
+import { Skill } from "@/types";
 
-const SKILL_GROUPS = [
+// Static fallback shown when the database has no skills yet
+const STATIC_SKILL_GROUPS = [
     {
         category: "Frontend",
         skills: [
@@ -33,29 +35,18 @@ const SKILL_GROUPS = [
     },
 ];
 
-const TOOLS = [
-    "React",
-    "TypeScript",
-    "Laravel",
-    "Inertia",
-    "Tailwind",
-    "Figma",
-    "Next.js",
-    "Vite",
-    "MySQL",
-    "Git",
-    "Docker",
-    "Node.js",
-];
+const CATEGORY_ORDER = ["Frontend", "Backend", "Design & Tools"];
+
+interface Props {
+    skills: Skill[];
+}
 
 function useInView(threshold = 0.1) {
     const ref = useRef<HTMLDivElement>(null);
     const [inView, setInView] = useState(false);
     useEffect(() => {
         const obs = new IntersectionObserver(
-            ([e]) => {
-                if (e.isIntersecting) setInView(true);
-            },
+            ([e]) => { if (e.isIntersecting) setInView(true); },
             { threshold },
         );
         if (ref.current) obs.observe(ref.current);
@@ -64,18 +55,38 @@ function useInView(threshold = 0.1) {
     return { ref, inView };
 }
 
-export default function Skills() {
-    const [loaded, setLoaded] = useState(false);
+export default function Skills({ skills }: Props) {
     const { ref, inView } = useInView();
+
+    // Use DB skills if available, otherwise fall back to static
+    const skillGroups = skills.length > 0
+        ? (() => {
+            const grouped = CATEGORY_ORDER.reduce<{ category: string; skills: { name: string; level: number }[] }[]>(
+                (acc, cat) => {
+                    const group = skills.filter((s) => s.category === cat);
+                    if (group.length > 0) acc.push({ category: cat, skills: group });
+                    return acc;
+                },
+                [],
+            );
+            // Append any custom categories not in the default order
+            const extraCats = [...new Set(skills.map((s) => s.category))].filter(
+                (c) => !CATEGORY_ORDER.includes(c),
+            );
+            extraCats.forEach((cat) => {
+                grouped.push({ category: cat, skills: skills.filter((s) => s.category === cat) });
+            });
+            return grouped;
+        })()
+        : STATIC_SKILL_GROUPS;
+
+    const allSkillNames = skillGroups.flatMap((g) => g.skills.map((s) => s.name));
+    const ticker = [...allSkillNames, ...allSkillNames, ...allSkillNames];
 
     return (
         <>
-            <Head title="Skills — John Doe" />
-            <Loading
-                onComplete={() => {
-                    setLoaded(true);
-                }}
-            />
+            <Head title="Skills — Jhovanie Flores" />
+            <Loading />
             <Guest>
                 <div className="px-8 md:px-14 pb-32">
                     {/* Page header */}
@@ -102,9 +113,9 @@ export default function Skills() {
                         ref={ref}
                         className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-24"
                     >
-                        {SKILL_GROUPS.map((group, gi) => (
+                        {skillGroups.map((group, gi) => (
                             <div key={group.category}>
-                                <h3 className="font-dm-sans text-[20px] text-[#444] tracking-[0.15em] uppercase mb-7 mt-4 pb-3 border-b border-white/5 ">
+                                <h3 className="font-dm-sans text-[20px] text-[#444] tracking-[0.15em] uppercase mb-7 mt-4 pb-3 border-b border-white/5">
                                     {group.category}
                                 </h3>
                                 <div className="flex flex-col gap-6">
@@ -122,11 +133,8 @@ export default function Skills() {
                                                 <div
                                                     className="absolute inset-y-0 left-0 transition-all duration-1000 ease-out"
                                                     style={{
-                                                        width: inView
-                                                            ? `${s.level}%`
-                                                            : "0%",
-                                                        background:
-                                                            "linear-gradient(90deg, #c8b97a, #e8e2d4)",
+                                                        width: inView ? `${s.level}%` : "0%",
+                                                        background: "linear-gradient(90deg, #c8b97a, #e8e2d4)",
                                                         transitionDelay: `${gi * 120 + si * 80 + 100}ms`,
                                                     }}
                                                 />
@@ -141,7 +149,7 @@ export default function Skills() {
                     {/* Scrolling ticker */}
                     <div className="border-t border-b border-white/5 py-6 overflow-hidden">
                         <div className="flex gap-12 animate-ticker whitespace-nowrap w-max">
-                            {[...TOOLS, ...TOOLS, ...TOOLS].map((t, i) => (
+                            {ticker.map((t, i) => (
                                 <span
                                     key={i}
                                     className="font-syne text-[11px] font-bold tracking-[0.2em] uppercase text-[#2a2a2a] hover:text-[#c8b97a] transition-colors duration-200 cursor-default"
