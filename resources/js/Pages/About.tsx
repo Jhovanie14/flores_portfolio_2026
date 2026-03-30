@@ -26,7 +26,7 @@ export default function About({}: PageProps) {
                             About me
                         </span>
                         <h1
-                            className="font-extrabold text-[#e8e2d4] leading-[0.92] tracking-[-0.03em]"
+                            className="font-extrabold text-[#e8e2d4] leading-normal tracking-[-0.03em]"
                             style={{ fontSize: "clamp(48px, 8vw, 100px)" }}
                         >
                             The person
