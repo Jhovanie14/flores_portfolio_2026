@@ -41,7 +41,7 @@ function MarqueeRow({
     return (
         <div className="overflow-hidden">
             <div
-                className={`flex gap-4 w-max ${reverse ? "animate-marquee-reverse" : "animate-marquee"}`}
+                className={`flex gap-4 w-full ${reverse ? "animate-marquee-reverse" : "animate-marquee"}`}
             >
                 {repeated.map((item, i) => (
                     <div

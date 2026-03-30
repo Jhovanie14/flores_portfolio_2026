@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
 // ── Customize ────────────────────────────────────────────────────
-const BRAND = "STUDIO";
-const TAGLINE = "Where Ideas Take Form";
+const BRAND = "JHOV.";
+const TAGLINE = "FullStack Developer · Philippines";
 // ────────────────────────────────────────────────────────────────
 
 interface LoadingProps {
