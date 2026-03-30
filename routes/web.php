@@ -5,9 +5,11 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SkillController;
+use App\Http\Controllers\StackController;
 use App\Models\Message;
 use App\Models\Project;
 use App\Models\Skill;
+use App\Models\Stack;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -17,6 +19,8 @@ Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin'    => Route::has('login'),
         'canRegister' => Route::has('register'),
+        'skills'      => Skill::ordered()->get(['name', 'category']),
+        'stacks'      => Stack::ordered()->get(['name', 'image']),
     ]);
 })->name('home');
 
@@ -57,6 +61,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/admin/skills',             [SkillController::class, 'store']  )->name('admin.skills.store');
     Route::put('/admin/skills/{skill}',      [SkillController::class, 'update'] )->name('admin.skills.update');
     Route::delete('/admin/skills/{skill}',   [SkillController::class, 'destroy'])->name('admin.skills.destroy');
+
+    // Stack
+    Route::get('/admin/stack',               [StackController::class, 'index']  )->name('admin.stack');
+    Route::post('/admin/stack',              [StackController::class, 'store']  )->name('admin.stack.store');
+    Route::put('/admin/stack/{stack}',       [StackController::class, 'update'] )->name('admin.stack.update');
+    Route::delete('/admin/stack/{stack}',    [StackController::class, 'destroy'])->name('admin.stack.destroy');
 
     // Profile
     Route::get('/profile',    [ProfileController::class, 'edit']   )->name('profile.edit');

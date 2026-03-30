@@ -42,6 +42,15 @@ export interface Skill {
     updated_at: string;
 }
 
+export interface Stack {
+    id: number;
+    name: string;
+    image: string | null;
+    sort_order: number;
+    created_at: string;
+    updated_at: string;
+}
+
 export interface DashboardStats {
     projects: number;
     messages: number;
