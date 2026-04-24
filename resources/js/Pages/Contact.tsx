@@ -6,10 +6,10 @@ import Guest from "@/Layouts/GuestLayout";
 import Loading from "@/Components/Loading";
 
 const SOCIALS = [
-    { label: "GitHub", href: "https://github.com" },
-    { label: "LinkedIn", href: "https://linkedin.com" },
-    { label: "Instagram", href: "https://instagram.com" },
-    { label: "Threads", href: "https://threads.com" },
+    { label: "GitHub", href: "https://github.com/Jhovanie14" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/jhovanie-flores-8b330130b" },
+    { label: "Instagram", href: "https://www.instagram.com/flrsjboy" },
+    { label: "Threads", href: "https://www.threads.com/@flrsjboy" },
 ];
 
 export default function Contact({}: PageProps) {
@@ -70,10 +70,10 @@ export default function Contact({}: PageProps) {
                             </p>
                             <div className="flex flex-col gap-2 mt-2">
                                 <a
-                                    href="mailto:hello@johndoe.com"
+                                    href="mailto:flores.jhovanie@gmail.com"
                                     className="font-syne text-[13px] font-bold tracking-[0.1em] text-[#c8b97a] no-underline hover:text-[#e8e2d4] transition-colors duration-200"
                                 >
-                                    connect.jhovanie@gmail.com
+                                    flores.jhovanie@gmail.com
                                 </a>
                                 <span className="font-dm-sans text-[12px] text-[#444] tracking-[0.05em]">
                                     +63 9192903551
