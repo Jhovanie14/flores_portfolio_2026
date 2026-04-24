@@ -142,8 +142,8 @@ export default function Home({ skills, stacks }: Props) {
                 </div>
 
                 <h1
-                    className={`font-extrabold leading-[0.88] tracking-[-0.04em] text-[#e8e2d4] ${revealed("delay-[450ms]")}`}
-                    style={{ fontSize: "clamp(56px, 9vw, 128px)" }}
+                    className={`font-extrabold leading-[0.88] tracking-[-0.04em] text-[#e8e2d4] break-words ${revealed("delay-[450ms]")}`}
+                    style={{ fontSize: "clamp(44px, 11vw, 128px)" }}
                 >
                     Jhovanie
                     <br />

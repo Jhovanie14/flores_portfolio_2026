@@ -74,7 +74,7 @@ export default function Loading({ onComplete }: LoadingProps) {
 
             {/* ── Loader screen ── */}
             {!isCurtain && !isLifting && (
-                <div className="fixed inset-0 z-[9999] bg-[#0a0a0a] flex flex-col justify-between px-14 py-12 overflow-hidden font-syne">
+                <div className="fixed inset-0 z-[9999] bg-[#0a0a0a] flex flex-col justify-between px-6 md:px-14 py-10 md:py-12 overflow-hidden font-syne">
                     {/* Split curtain — top half */}
                     <div
                         className={`absolute left-0 right-0 top-0 h-1/2 bg-[#0a0a0a] z-10
@@ -110,7 +110,7 @@ export default function Loading({ onComplete }: LoadingProps) {
                                 <span
                                     className="inline-block font-extrabold text-[#e8e2d4] leading-[0.92] tracking-[-0.03em] translate-y-[110%] animate-slide-up [animation-delay:0.5s]"
                                     style={{
-                                        fontSize: "clamp(52px, 10vw, 120px)",
+                                        fontSize: "clamp(40px, 11vw, 120px)",
                                     }}
                                 >
                                     Jhovanie
@@ -121,7 +121,7 @@ export default function Loading({ onComplete }: LoadingProps) {
                                 <span
                                     className="inline-block font-extrabold leading-[0.92] tracking-[-0.03em] translate-y-[110%] animate-slide-up [animation-delay:0.65s]"
                                     style={{
-                                        fontSize: "clamp(52px, 10vw, 120px)",
+                                        fontSize: "clamp(40px, 11vw, 120px)",
                                         color: "transparent",
                                         WebkitTextStroke: "1.5px #e8e2d4",
                                     }}

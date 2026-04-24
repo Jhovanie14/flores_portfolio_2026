@@ -94,7 +94,7 @@ function ProjectRow({
             style={{ animationDelay: `${index * 80}ms` }}
         >
             {/* Left */}
-            <div className="flex items-start md:items-center gap-6 md:gap-10">
+            <div className="flex items-start md:items-center gap-6 md:gap-10 min-w-0 md:flex-1">
                 <span className="font-dm-sans text-[11px] text-[#2a2a2a] tracking-[0.1em] mt-1 md:mt-0 min-w-[24px]">
                     {number}
                 </span>
@@ -110,9 +110,9 @@ function ProjectRow({
                     </div>
                 )}
 
-                <div>
+                <div className="min-w-0 flex-1">
                     <h2
-                        className={`font-extrabold tracking-[-0.02em] leading-none transition-colors duration-300 ${hovered ? "text-[#c8b97a]" : "text-[#e8e2d4]"}`}
+                        className={`font-extrabold tracking-[-0.02em] leading-none transition-colors duration-300 break-words ${hovered ? "text-[#c8b97a]" : "text-[#e8e2d4]"}`}
                         style={{ fontSize: "clamp(22px, 3.5vw, 42px)" }}
                     >
                         {project.title}
@@ -124,8 +124,8 @@ function ProjectRow({
             </div>
 
             {/* Right */}
-            <div className="flex flex-col md:items-end gap-3 mt-5 md:mt-0 ml-10 md:ml-6 shrink-0">
-                <div className="flex flex-wrap gap-2">
+            <div className="flex flex-col md:items-end gap-3 mt-5 md:mt-0 ml-10 md:ml-6 md:max-w-[45%] w-full md:w-auto min-w-0">
+                <div className="flex flex-wrap gap-2 md:justify-end">
                     {project.tags?.map((t) => (
                         <span
                             key={t}

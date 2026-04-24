@@ -47,13 +47,16 @@ export default function About({}: PageProps) {
                         <div className="flex flex-col gap-6">
                             <div className="flex flex-col gap-5 font-dm-sans text-[15px] text-[#666] font-light leading-[1.8]">
                                 <p>
-                                    I'm a frontend developer and designer based
+                                    I'm a fullstack developer based
                                     in the Philippines with a passion for
                                     building products that feel as good as they
                                     look.
                                 </p>
                                 <p>
                                     My stack centers around{" "}
+                                    <span className="text-[#e8e2d4]">
+                                        Vue
+                                    </span>
                                     <span className="text-[#e8e2d4]">
                                         React
                                     </span>
@@ -65,11 +68,11 @@ export default function About({}: PageProps) {
                                     <span className="text-[#e8e2d4]">
                                         Laravel
                                     </span>{" "}
-                                    — but I adapt to whatever the project
+                                    but I adapt to whatever the project
                                     demands.
                                 </p>
                                 <p>
-                                    When I'm not building, I'm exploring design
+                                    When I'm not building, I'm exploring framework
                                     trends, contributing to open source, or
                                     brewing a fresh batch of coffee.
                                 </p>
